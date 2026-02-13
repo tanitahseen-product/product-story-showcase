@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
 import { FileText, ExternalLink } from "lucide-react";
 
-const placeholderStudies = [
+const caseStudies = [
   {
-    title: "Product Teardown: Example App",
-    description: "Deep-dive analysis of user flows, monetization strategy, and UX improvements.",
+    title: "Disney+ Hotstar: New User Onboarding",
+    description: "Deep-dive analysis of onboarding flows, user persona, user journey, UX evaluation, and key metrics for Disney+ Hotstar.",
     tag: "Product Teardown",
+    link: "https://www.canva.com/design/DAFm0a7n1Jc/OuKHiKxC-Skoag1lKaHxDA/view",
   },
   {
-    title: "SaaS Onboarding Optimization",
-    description: "A comprehensive study on reducing time-to-value through onboarding redesign.",
-    tag: "Case Study",
+    title: "Netflix: Solving High Subscription Issue",
+    description: "Comprehensive teardown covering user persona, journey mapping, UX analysis, problem identification, and proposed solutions for Netflix.",
+    tag: "Product Teardown",
+    link: "https://www.canva.com/design/DAHBMWCSiwY/gmGsKDeBy-luXo55SoCgyA/view",
   },
 ];
 
@@ -35,14 +37,17 @@ const CaseStudies = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {placeholderStudies.map((study, i) => (
-            <motion.div
+          {caseStudies.map((study, i) => (
+            <motion.a
               key={i}
+              href={study.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="group bg-card border border-border rounded-xl p-8 hover:border-secondary/50 hover:shadow-lg transition-all cursor-pointer"
+              className="group bg-card border border-border rounded-xl p-8 hover:border-secondary/50 hover:shadow-lg transition-all cursor-pointer block"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
@@ -59,9 +64,9 @@ const CaseStudies = () => {
                 {study.description}
               </p>
               <span className="inline-flex items-center gap-1 text-secondary font-body text-sm font-medium">
-                View PDF <ExternalLink size={14} />
+                View Teardown <ExternalLink size={14} />
               </span>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
@@ -71,7 +76,7 @@ const CaseStudies = () => {
           viewport={{ once: true }}
           className="font-body text-muted-foreground text-sm text-center mt-10 italic"
         >
-          More case studies coming soon — upload your product teardown PDFs to showcase them here.
+          Part of the Learn In Public Challenge — more teardowns coming soon.
         </motion.p>
       </div>
     </section>
